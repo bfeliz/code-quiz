@@ -11,16 +11,27 @@
 </head>
 
 <body>
+
     <div class="jumbotron">
-        <h1 class="display-4">Coding Quiz</h1>
-        <p class="lead">Ready to race against the clock and test your knowledge of JavaScript?</p>
+        <h1 class="display-4">Results</h1>
         <hr class="my-4">
-        <p>The rules are simple: For each question, click on the correct answer as quickly as you can. If you get it
-            right, you will simply move on to the next question. If you get it wrong, you will have 5 seconds deducted
-            from your time before moving on. Once you have answered all questions, your final score will be the amount
-            of time you have left. The higher the score, the better! Good luck!</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Start the Quiz</a>
+        <div class="showResults"></div>
+        <p>Add your score to the list below and see if you can beat it next time!</p>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Add your initials here" aria-label="Highscore Initials"
+                aria-describedby="button-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Add Score</button>
+            </div>
+        </div>
+        <hr class="my-4">
+        <p class="lead">Highscore</p>
+        <div class="highScore"></div>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Clear Highscore</a>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Play Again</a>
     </div>
+
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
