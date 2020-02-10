@@ -10,23 +10,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body id="resultsPage">
 
     <div class="jumbotron">
         <h1 class="display-4">Results</h1>
+        <h5 id="showResults"></h5>
         <hr class="my-4">
-        <div class="showResults"></div>
         <p>Add your score to the list below and see if you can beat it next time!</p>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Add your initials here" aria-label="Highscore Initials"
-                aria-describedby="button-addon2">
+            <input type="text" class="form-control" id="userInput" placeholder="Add your initials here"
+                aria-label="Highscore Initials" aria-describedby="button-addon2">
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon2">Add Score</button>
             </div>
         </div>
         <hr class="my-4">
         <p class="lead">Highscore</p>
-        <div class="highScore"></div>
+        <ul class="highScore" id="highScoreList"></ul>
         <a class="btn btn-primary btn-lg" href="#" role="button">Clear Highscore</a>
         <a class="btn btn-primary btn-lg" href="index.html" role="button">Play Again</a>
     </div>

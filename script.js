@@ -2,8 +2,14 @@ var timer = document.getElementById('countdown');
 var questionSpot = document.querySelector('.question');
 var choicesSpot = document.querySelector('.buttons');
 var resultSpot = document.querySelector('.result');
+var finalScore = document.querySelector('#showResults');
+var initialsInput = document.querySelector('#userInput');
+var addScore = document.querySelector('#highScoreList');
+var scoreButton = document.querySelector('#button-addon2');
 
-var timeLeft = 74;
+var highScores = [];
+var timeInterval;
+var time = 20;
 
 var questions = [
     {
@@ -40,22 +46,24 @@ var questions = [
         correct: 3
     }
 ];
-questions.shift();
 
 function onQuestionsLoad() {
     if (document.getElementById('questionsPage')) {
-        function scoreTimer() {
-            var timeInterval = setInterval(function() {
-                timer.textContent = 'You have ' + timeLeft + ' seconds left';
-                timeLeft--;
-                if (timeLeft === -1) {
-                    clearInterval(timeInterval);
-                    window.location.replace('results.html');
+        var timeInterval = setInterval(function() {
+            time--;
+            timer.textContent = 'You have ' + time + ' seconds left';
+            if (time === 0) {
+                clearInterval(timeInterval);
+                timer.textContent = 'Your score is ' + time;
+                resultSpot.textContent = '';
+                while (choicesSpot.hasChildNodes()) {
+                    choicesSpot.removeChild(choicesSpot.firstChild);
                 }
-            }, 1000);
-        }
-
-        scoreTimer();
+                while (questionSpot.hasChildNodes()) {
+                    questionSpot.removeChild(questionSpot.firstChild);
+                }
+            }
+        }, 1000);
 
         function insertQuestion() {
             for (let j = 0; j < 1; j++) {
@@ -77,13 +85,18 @@ function onQuestionsLoad() {
                 }
             } else {
                 resultSpot.textContent = 'Previous question was wrong';
-                if (timeLeft > 4) {
-                    timeLeft = timeLeft - 5;
+                if (time > 4) {
+                    time = time - 5;
                     while (choicesSpot.hasChildNodes()) {
                         choicesSpot.removeChild(choicesSpot.firstChild);
                     }
                 } else {
-                    window.location.replace('results.html');
+                    clearInterval(timeInterval);
+                    timer.textContent = 'Your score is ' + time;
+                    resultSpot.textContent = '';
+                    while (questionSpot.hasChildNodes()) {
+                        questionSpot.removeChild(questionSpot.firstChild);
+                    }
                 }
             }
             if (questions.length > 1) {
@@ -91,11 +104,45 @@ function onQuestionsLoad() {
                 console.log(questions);
                 insertQuestion();
             } else {
-                window.location.replace('results.html');
+                clearInterval(timeInterval);
+                timer.textContent = 'Your score is ' + time;
+                resultSpot.textContent = '';
+                while (questionSpot.hasChildNodes()) {
+                    questionSpot.removeChild(questionSpot.firstChild);
+                }
             }
         });
 
         insertQuestion();
     }
 }
+// if (document.getElementById('resultsPage')) {
+//     finalScore.textContent = time;
+
+//     renderHighscore();
+
+//     function renderHighscore() {
+//         for (let i = 0; i < highScores.length; i++) {
+//             var score = highScores[i];
+
+//             var li = document.createElement('li');
+//             li.textContent = score;
+//             todoList.appendChild(li);
+//         }
+//     }
+
+//     scoreButton.addEventListener('click', function(event) {
+//         event.preventDefault();
+
+//         var initialsText = initialsInput.value.trim();
+
+//         if (initialsText === '') {
+//             return;
+//         }
+//         highScores.push(initialsText);
+//         initialsInput.value = '';
+
+//         renderHighscore();
+//     });
+// }
 onQuestionsLoad();
