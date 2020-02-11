@@ -1,7 +1,9 @@
+// hidden at startup
 document.getElementById('userInput').style.display = 'none';
 document.getElementById('highscoreTitle').style.display = 'none';
 document.querySelector('.scoreBtn').style.display = 'none';
 
+// global variables
 var initialsForm = document.querySelector('#initials-form');
 var scoreList = document.querySelector('#score-list');
 var initialsInput = document.getElementById('initials-text');
@@ -56,6 +58,7 @@ var questions = [
     }
 ];
 
+// start questions page
 function onQuestionsLoad() {
     if (document.getElementById('questionsPage')) {
         resultSpot.textContent = 'You can do it!';
@@ -84,19 +87,14 @@ function onQuestionsLoad() {
         choicesSpot.addEventListener('click', function(event) {
             if (event.target.classList.contains(questions[0].correct)) {
                 resultSpot.textContent = 'Previous question was correct';
-                while (choicesSpot.hasChildNodes()) {
-                    choicesSpot.removeChild(choicesSpot.firstChild);
-                }
+                remove();
             } else {
                 resultSpot.textContent = 'Previous question was wrong';
-                if (time > 4) {
+                if (time > 5) {
                     time = time - 5;
-                    while (choicesSpot.hasChildNodes()) {
-                        choicesSpot.removeChild(choicesSpot.firstChild);
-                    }
-                } else {
-                    clearInterval(timeInterval);
-                    resultsPage();
+                    remove();
+                } else if (time <= 5) {
+                    time = 0;
                 }
             }
             if (questions.length > 1) {
@@ -112,6 +110,7 @@ function onQuestionsLoad() {
     }
 }
 
+// start results page
 function resultsPage() {
     clearInterval(timeInterval);
     document.getElementById('userInput').style.display = 'block';
@@ -120,9 +119,7 @@ function resultsPage() {
 
     timer.textContent = 'Your score is ' + time;
     resultSpot.textContent = '';
-    while (choicesSpot.hasChildNodes()) {
-        choicesSpot.removeChild(choicesSpot.firstChild);
-    }
+    remove();
     while (questionSpot.hasChildNodes()) {
         questionSpot.removeChild(questionSpot.firstChild);
     }
@@ -138,26 +135,28 @@ function resultsPage() {
         initialsForm.style.display = 'none';
     });
 }
+function remove() {
+    while (choicesSpot.hasChildNodes()) {
+        choicesSpot.removeChild(choicesSpot.firstChild);
+    }
+}
 
+// highscore list and storage
 function renderScores() {
     scoreList.innerHTML = '';
-
     for (var i = 0; i < highScores.length; i++) {
         var addedInitials = highScores[i];
-
         var li = document.createElement('li');
         li.textContent = addedInitials;
         li.setAttribute('data-index', i);
         scoreList.appendChild(li);
     }
 }
-
 function resetHighscore() {
     highScores = [];
     renderScores();
     storeScores();
 }
-
 function storage() {
     var storedScores = JSON.parse(localStorage.getItem('highScores'));
     if (storedScores !== null) {
@@ -171,13 +170,10 @@ function storeScores() {
 
 initialsForm.addEventListener('submit', function(event) {
     event.preventDefault();
-
     var initialsText = initialsInput.value.trim();
-
     if (initialsText === '') {
         return;
     }
-
     highScores.push(initialsText + ' | Score: ' + time);
     initialsInput.value = '';
     storeScores();
@@ -186,6 +182,7 @@ initialsForm.addEventListener('submit', function(event) {
 
 clearBtn.addEventListener('click', resetHighscore);
 
+// function calls
 onQuestionsLoad();
 renderScores();
 storage();
