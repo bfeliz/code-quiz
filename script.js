@@ -15,41 +15,44 @@ var submitBtn = document.querySelector('#submit-btn');
 
 var highScores = [];
 var timeInterval;
-var time = 75;
+var time = 50;
 
 var questions = [
     {
-        question: 'Commonly used data types do NOT include:',
-        options: ['Strings', 'Booleans', 'Alerts', 'Numbers'],
+        question: 'Empty strings are:',
+        options: ['Empty', 'Truthy', 'Boring', 'Falsy'],
+        correct: 3
+    },
+    {
+        question: 'Objects are enclosed within __________.',
+        options: ['Quotes', 'Parentheses', 'Curly Brackets', 'Square Brackets'],
         correct: 2
     },
     {
-        question:
-            'The condition in an if/else statement is enclosed within __________.',
+        question: 'Arrays are enclosed within ____________.',
         options: ['Quotes', 'Parentheses', 'Curly Brackets', 'Square Brackets'],
+        correct: 3
+    },
+    {
+        question: 'Under what HTML tag does one write the JavaScript code?',
+        options: ['<JavaScript>', '<script>', '<h1>', '<p>'],
         correct: 1
     },
     {
-        question: 'Arrays in JavaScript can be used to store ___________.',
-        options: [
-            'Numbers and Strings',
-            'Booleans',
-            'Other Arrays',
-            'All of the Above'
-        ],
-        correct: 3
-    },
-    {
         question:
-            'String values must be enclosed within ________ when being assigned to variables.',
-        options: ['Quotes', 'Commas', 'Curly Brackets', 'Parentheses'],
+            'What is the correct syntax for adding comments in JavaScript?',
+        options: ['// comment', '<! comment', '** comment', '- comment'],
         correct: 0
     },
     {
-        question:
-            'A very useful tool during development and debugging for printing content to the debugger is:',
-        options: ['JavaScript', 'Terminal', 'For Loops', 'Console Log'],
+        question: 'What is the correct syntax for printing to the console?',
+        options: ['console()', 'log.console', 'print()', 'console.log()'],
         correct: 3
+    },
+    {
+        question: 'What would you use to cycle through an array?',
+        options: ['return', 'for loop', 'eventListener', 'console.log()'],
+        correct: 1
     }
 ];
 
