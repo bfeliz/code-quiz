@@ -11,6 +11,7 @@ var choicesSpot = document.querySelector('.buttons');
 var resultSpot = document.querySelector('.result');
 var resultsTitleEl = document.querySelector('#resultsTitle');
 var clearBtn = document.querySelector('#clear-btn');
+var submitBtn = document.querySelector('#submit-btn');
 
 var highScores = [];
 var timeInterval;
@@ -54,6 +55,7 @@ var questions = [
 
 function onQuestionsLoad() {
     if (document.getElementById('questionsPage')) {
+        resultSpot.textContent = 'You can do it!';
         var timeInterval = setInterval(function() {
             time--;
             timer.textContent = 'You have ' + time + ' seconds left';
@@ -70,6 +72,7 @@ function onQuestionsLoad() {
                     var button = document.createElement('button');
                     button.textContent = questions[j].options[i];
                     button.setAttribute('class', i);
+                    button.style.outlineColor = '#122414';
                     choicesSpot.appendChild(button);
                 }
             }
@@ -127,6 +130,10 @@ function resultsPage() {
     p.textContent =
         'Add your score to the list below and see if you can beat it next time!';
     questionSpot.appendChild(p);
+
+    submitBtn.addEventListener('click', function() {
+        initialsForm.style.display = 'none';
+    });
 }
 
 function renderScores() {

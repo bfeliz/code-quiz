@@ -1,0 +1,110 @@
+html,
+body {
+    height: 100vh;
+    margin: 0;
+}
+
+body {
+    padding: 7% 20%;
+    background-color: black;
+    background-image: url(images/background.jpg);
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    color: #ebf5ec;
+}
+h1 {
+    text-align: center;
+}
+h3 {
+    font-size: 30px;
+}
+h4 {
+    font-size: 20px;
+}
+#score-list {
+    list-style: none;
+}
+#initials-text {
+    background-color: #ebf5ec;
+}
+#countdown,
+.result {
+    text-align: center;
+}
+.jumbotron {
+    background-color: #122414;
+    opacity: 0.9;
+}
+.btn-lg {
+    border: none;
+    background-color: #ebf5ec;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px
+        1px 0px;
+    color: #122414;
+    display: inline-block;
+    font-size: 22px;
+    line-height: 22px;
+    margin: 16px 16px 16px 0px;
+    padding: 14px 34px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+}
+.btn-lg:hover {
+    border: none;
+    background-color: #6b0025;
+    color: #ebf5ec;
+}
+.btn-md {
+    border: none;
+    background-color: #ebf5ec;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px
+        1px 0px;
+    color: #122414;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 15px;
+    margin: 10px 10px 10px 14px;
+    padding: 8px 28px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+}
+.btn-start {
+    padding: 6px 28px;
+}
+.btn-md:visited {
+    outline-color: #122414;
+    border: none;
+    background-color: #ebf5ec;
+    color: #122414;
+}
+.btn-md:hover {
+    outline-color: #122414;
+    border: none;
+    background-color: #6b0025;
+    color: #ebf5ec;
+}
+.btn-md:active {
+    outline-color: #122414;
+    border: none;
+    background-color: #ebf5ec;
+    color: #122414;
+}
+button {
+    border: none;
+    background-color: #ebf5ec;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px
+        1px 0px;
+    color: #122414;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 15px;
+    margin: 10px 10px 10px 14px;
+    padding: 8px 28px;
+    text-align: center;
+    cursor: pointer;
+}

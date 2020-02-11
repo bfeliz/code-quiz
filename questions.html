@@ -4,28 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <title>JavaScript Code Quiz</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body id="questionsPage">
-    <div id="resultsTitle"></div>
-    <h3 id="countdown">You have 75 seconds left</h3>
-    <div class="question"></div>
-    <div class="buttons">
-    </div>
-    <div class="result"></div>
-    <div class="userInput" id="userInput">
-        <form id="initials-form" method="POST">
-            <input type="text" placeholder="Add your initials here" name="initials-text" id="initials-text" />
-        </form>
-        <p class="lead" id="highscoreTitle">Highscore</p>
-        <ul id="score-list"></ul>
-        <a class="btn btn-primary btn-lg scoreBtn" id="clear-btn" href="#" role="button">Clear Highscore</a>
-        <a class="btn btn-primary btn-lg scoreBtn" href="index.html" role="button">Play Again</a>
+    <div class="jumbotron h-100 align-items-center">
+        <div id="resultsTitle"></div>
+        <h3 id="countdown">You have 75 seconds left</h3>
+        <hr class="my-2">
+        <h4 class="question"></h4>
+        <hr class="my-2">
+        <div class="buttons">
+        </div>
+        <hr class="my-2">
+        <div class="result"></div>
+        <div class="userInput" id="userInput">
+            <form class="form-inline" id="initials-form">
+                <div class="form-group mx-sm-3 mb-2">
+                    <input type="text" class="form-control" id="initials-text" placeholder="Add your initials here">
+                </div>
+                <button type="submit" class="btn btn-dark btn-md" id="submit-btn">Submit Score</button>
+            </form>
+            <hr class="my-2">
+            <p class="lead" id="highscoreTitle">Highscore Leaderboard</p>
+            <ul id="score-list"></ul>
+            <a class="btn btn-dark btn-md scoreBtn btn-start" id="clear-btn" href="#" role="button">Clear
+                Score List</a>
+            <a class="btn btn-dark btn-md scoreBtn" href="index.html" role="button">Start Quiz Over</a>
 
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
