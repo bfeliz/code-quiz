@@ -2,20 +2,28 @@
 
 ## Description
 
-Fourth Homework Assignment - A timed quiz with various coding questions, users try to beat the clock for a high score.
+A timed quiz with various coding questions, users try to beat the clock for a high score.
+
+## [Try it yourself!](https://bfeliz.github.io/code-quiz/)
 
 The following image shows a glimpse of the application:
 
 ![code quiz](assets/images/quiz.png)
 
-## Link to GitHub repository:
+## Getting Started
 
-https://github.com/bfeliz/code-quiz
+This is a simple application that runs right in the browser, no installation or downloads needed.
 
-## Link to deployed app:
+## Built With:
 
-https://bfeliz.github.io/code-quiz/
+JavaScript - programming language <br>
+Bootstrap - CSS Framework
 
 ## Author:
 
-Brittany Fortner
+Brittany Fortner <br>
+See commit history [here](https://github.com/bfeliz/code-quiz/graphs/contributors).
+
+## Planned Updates
+
+There are no plans to further update this application at this time.
